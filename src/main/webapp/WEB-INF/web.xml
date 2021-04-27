@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>jee-micro-projet</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <jsp-config>
+  	<jsp-property-group>
+      <url-pattern>*.jsp</url-pattern>
+      <include-prelude>/WEB-INF/JSTL.jsp</include-prelude>
+     </jsp-property-group>
+  </jsp-config>
+  
+  
+  <servlet>
+  	<servlet-name>accueil</servlet-name>
+  	<servlet-class>controllers.Accueil</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>inscription</servlet-name>
+  	<servlet-class>controllers.Inscription</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>identification</servlet-name>
+  	<servlet-class>controllers.Identification</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>catalogue</servlet-name>
+  	<servlet-class>controllers.Catalogue</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>detail</servlet-name>
+  	<servlet-class>controllers.Detail</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ajouterPanier</servlet-name>
+  	<servlet-class>controllers.AjouterAuPanier</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>commandes</servlet-name>
+  	<servlet-class>controllers.Commandes</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>accueil</servlet-name>
+  	<url-pattern></url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>inscription</servlet-name>
+  	<url-pattern>/inscrire</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>identification</servlet-name>
+  	<url-pattern>/identifier</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>catalogue</servlet-name>
+  	<url-pattern>/catalogue</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>detail</servlet-name>
+  	<url-pattern>/detail</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ajouterPanier</servlet-name>
+  	<url-pattern>/panier/ajouter</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>commandes</servlet-name>
+  	<url-pattern>/commandes</url-pattern>
+  </servlet-mapping>
+  
+  
+  <filter>
+  	<filter-name>autorisation</filter-name>
+  	<filter-class>filters.RedirectIfUnauthenticated</filter-class>
+  </filter>
+   <filter-mapping>
+  	<filter-name>autorisation</filter-name>
+  	<url-pattern>/catalogue</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>autorisation</filter-name>
+  	<url-pattern>/detail</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>autorisation</filter-name>
+  	<url-pattern>/panier/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+  	<filter-name>autorisation</filter-name>
+  	<url-pattern>/commandes</url-pattern>
+  </filter-mapping>
+</web-app>
